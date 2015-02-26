@@ -1,21 +1,22 @@
 redmine2confluence-wiki
 =======================
 
-Set of scripts to import data from redmine wiki to Confluence
-Based on:
+Redmine wikiからConfluenceにデータをインポートするためのスクリプトです。
+
+参考:
 - Tim Jansen's gist https://gist.github.com/tim-jansen/6263586 
 - Stefan Bühler's redmine export script: http://stbuehler.de/blog/article/2011/06/04/exporting_redmine_wiki_pages.html
 
-Usage:
+使い方:
 ----------
-To use this conversion:
-- Execute ExportWiki.export_all from exportwiki.rb in the redmine environment. This will create set of folders with all the project data
-- Edit redmine_spaces.py file to 
+変換方法:
+- Redmine環境の上で、 `exportwiki.rb` を使って `ExportWiki.export_all` を実行します。プロジェクトデータのフォルダが作成されます。
+- `redmine_spaces.py` ファイルを編集します
 	* provide reference to Jira ticket link conversion or another ticketing system (it will replace \g<1> with original redmine ID)
-	* configure mapping of redmine projects to confluence spaces. Different projects can be mapped to the same space. in this case conflicting pages will be ignored
-- Modify 'import_confluence.py' to configure:
+    * RedmineのプロジェクトからConfluenceのスペースへのマッピングを設定するため。異なるプロジェクトを同一のスペースにマッピングすることも可能です。その場合、コンフリクトしたページは無視されます。
+- `import_confluence.py` を編集して以下を設定します
 	* user name
 	* password
 	* confluence URL
-- Run the python script 'import_confluence.py' in the exported data folder (root level)
+- エクスポートされたフォルダのルートで `import_confluence.py` を実行します
 
